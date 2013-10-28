@@ -1,7 +1,9 @@
 <?php
 
-$file = $_GET['file'];
-$file_name = $_GET['file_name'];
+include('./classes/Tools.php');
+
+$file = Tools::getValue['file'];
+$file_name = Tools::getValue['file_name'];
 
 if($file != '' && $file_name != '')
 {	
