@@ -1,0 +1,133 @@
+/* ==========================================
+	The Basics
+   ========================================== */
+html { background: #FFF; }
+
+body {
+    text-align: center;
+    text-align: center;
+}
+h1, h2, h3, h4 {
+    border-bottom: 1px solid #EFEFEF;
+    border-top: 1px solid #EFEFEF;
+    margin: 0 0 10px;
+    overflow: hidden;
+    padding: 5px 0;
+	font-family: 'Raleway', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+h1 {
+	font-size: 22px;
+	color: #cc3d3d;
+}
+h2 {
+	font-size: 20px;
+	color: #444;
+}
+h3 {
+	font-size: 18px;
+	color: #cc3d3d;
+}
+h4 {
+	font-size: 16px;
+	color: #444;
+}
+	.hRight {
+		color: #999;
+		font-weight: normal;
+		text-transform: none;
+		font-size: 16px;
+	}
+
+p, div {
+    font-size: 14px;
+    color: #444;
+    line-height: 22px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+ form, body, iframe {
+    margin: 0;
+    padding: 0;
+}
+img, table, iframe { border: 0; }
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+    -webkit-border-radius:2px;
+            border-radius: 2px;
+}
+p { margin: 0 0 15px 0; }
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+	width: 100%;
+	margin-bottom: 10px;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+ol, ul {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+a {
+    color: #cc3d3d;
+    text-decoration: none
+}
+a:hover, a:focus {
+    color: #222;
+    text-decoration: underline
+}
+
+ul, ol {
+    margin-bottom: 20px;
+}
+ul {
+    list-style: none outside;
+}
+ol {
+    list-style: decimal;
+}
+ol, ul.square, ul.circle, ul.disc {
+    margin-left: 30px;
+}
+ul.square {
+    list-style: square outside;
+}
+ul.circle {
+    list-style: circle outside;
+}
+ul.disc {
+    list-style: disc outside;
+}
+ul ul {
+    margin: 4px 0 5px 30px;
+    font-size: 90%;
+}
+ul ul li {
+    margin-bottom: 6px;
+}
+li {
+    line-height: 18px;
+    margin-bottom: 12px;
+}
+hr, .alt {
+    border-color: #F1C9BC -moz-use-text-color #E49A89;
+    border-style: solid none;
+    border-width: 1px medium;
+    clear: both;
+    color: #FFFFFF;
+    height: 3px;
+    margin: 10px 0;
+    min-height: 0;
+}
+hr {
+    margin: 10px;
+}
