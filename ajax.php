@@ -33,25 +33,10 @@ function zipDir($file, $module_name)
   		// folder  	
 		$zip->addEmptyDir($module_name);
 		$zip->addFromString($module_name.'/index.php', $index_file);
-				
-		$bootstrap_file = file_get_contents(dirname(__FILE__) . '/sources/bootstrap.php');
-		
-		/*MODULE*/
-		$bootstrap_file = str_replace('/*MODULE*/', Tools::toNoSpaceCase(ucwords(Tools::getValue('moduleName'))), $bootstrap_file);
-		/*MODULE_NAME*/
-		$bootstrap_file = str_replace('/*MODULE_NAME*/', Tools::toUnderscoreCase($module_name), $bootstrap_file);
-	 	/*MODULE_TAB*/
-		$bootstrap_file = str_replace('/*MODULE_TAB*/', Tools::getValue('moduleTab'), $bootstrap_file);
-	 	/*MODULE_VERSION*/
-		$bootstrap_file = str_replace('/*MODULE_VERSION*/', Tools::getValue('moduleVersion'), $bootstrap_file);
-	 	/*MODULE_AUTHOR*/
-		$bootstrap_file = str_replace('/*MODULE_AUTHOR*/', Tools::getValue('moduleAuthor'), $bootstrap_file);
-		/*MODULE_DISPLAYNAME*/
-		$bootstrap_file = str_replace('/*MODULE_DISPLAYNAME*/', Tools::getValue('moduleDisplayName'), $bootstrap_file);
-		/*MODULE_DESCRIPTION*/
-		$bootstrap_file = str_replace('/*MODULE_DESCRIPTION*/', Tools::getValue('moduleDescription'), $bootstrap_file);
 
-		/*INSTALL_HOOKS*/
+		$bootstrap_file = file_get_contents(dirname(__FILE__) . '/sources/bootstrap.php');
+
+		/*Prepare INSTALL_HOOKS*/
 		$selectedHooks = Tools::getValue('selectedHooks');	
 		$hooks = explode(",", $selectedHooks);
 		$selectedHooks = '';
@@ -70,10 +55,32 @@ function zipDir($file, $module_name)
 				$installHooks .= "\n\t{\n\t\t\n\t}";
 		}
 		$hooks = "if(".$selectedHooks.")\n\t\t\t return false;";
-		$bootstrap_file = str_replace('/*INSTALL_HOOKS*/', $hooks, $bootstrap_file);
-
-		$bootstrap_file = str_replace('/*INSTALLS_HOOKS*/', $installHooks, $bootstrap_file);
 		
+		/* Parsing & replace */
+		$Replace_Booststrap_Pattern = Array(
+					'//*MODULE*//',
+					'//*MODULE_NAME*//',
+					'//*MODULE_TAB*//',
+					'//*MODULE_VERSION*//',
+					'//*MODULE_AUTHOR*//',
+					'//*MODULE_DISPLAYNAME*//',
+					'//*MODULE_DESCRIPTION*//',
+					'//*INSTALL_HOOKS*//',
+					'//*INSTALLS_HOOKS*//',
+		);
+		$Replace_Booststrap_Replacement = Array(
+					Tools::toNoSpaceCase(ucwords(Tools::getValue('moduleName'))),
+					Tools::toUnderscoreCase($module_name),
+					Tools::getValue('moduleTab'),
+					Tools::getValue('moduleVersion'),
+					Tools::getValue('moduleAuthor'),
+					Tools::getValue('moduleDisplayName'),
+					Tools::getValue('moduleDescription'),
+					$hooks,
+					$installHooks,
+		);
+		$bootstrap_file = preg_replace($Replace_Booststrap_Pattern , $Replace_Booststrap_Replacement , $bootstrap_file);
+
 		$zip->addFromString($module_name.'/'.$module_name.'.php', $bootstrap_file);
   		
   		//	folderControllers  	
