@@ -22,15 +22,15 @@ class Tools
 	
 	public static function toUnderscoreCase($string)
 	{
-		return strtolower(str_replace(' ', '_', $string));
+		return strtolower(preg_replace(array('/ /') , array('_') , $string));
 	}	
 	public static function toNoSpaceCase($string)
 	{
-		return str_replace(' ', '', $string);
+		return preg_replace(array('/ /') , array('') , $string);
 	}	
 	public static function toModuleName($string)
 	{
-		return strtolower(str_replace(' ', '', $string));
+		return strtolower(preg_replace(array('/ /') , array('') , $string));
 	}	
 	/**
 	* Translates a string with underscores into camel case (e.g. first_name -> firstName)
