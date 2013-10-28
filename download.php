@@ -2,8 +2,8 @@
 
 include('./classes/Tools.php');
 
-$file = Tools::getValue['file'];
-$file_name = Tools::getValue['file_name'];
+$file = Tools::getValue('file');
+$file_name = Tools::getValue('file_name');
 
 if($file != '' && $file_name != '')
 {	
