@@ -58,15 +58,15 @@ function zipDir($file, $module_name)
 		
 		/* Parsing & replace */
 		$Replace_Booststrap_Pattern = Array(
-					'/\/*MODULE*\//',
-					'/\/*MODULE_NAME*\//',
-					'/\/*MODULE_TAB*\//',
-					'/\/*MODULE_VERSION*\//',
-					'/\/*MODULE_AUTHOR*\//',
-					'/\/*MODULE_DISPLAYNAME*\//',
-					'/\/*MODULE_DESCRIPTION*\//',
-					'/\/*INSTALL_HOOKS*\//',
-					'/\/*INSTALLS_HOOKS*\//',
+					'/&&MODULE&&/',
+					'/&&MODULE_NAME&&/',
+					'/&&MODULE_TAB&&/',
+					'/&&MODULE_VERSION&&/',
+					'/&&MODULE_AUTHOR&&/',
+					'/&&MODULE_DISPLAYNAME&&/',
+					'/&&MODULE_DESCRIPTION&&/',
+					'/&&INSTALL_HOOKS&&/',
+					'/&&INSTALLS_HOOKS&&/',
 		);
 		$Replace_Booststrap_Replacement = Array(
 					Tools::toNoSpaceCase(ucwords(Tools::getValue('moduleName'))),
@@ -80,7 +80,7 @@ function zipDir($file, $module_name)
 					$installHooks,
 		);
 		$bootstrap_file = preg_replace($Replace_Booststrap_Pattern , $Replace_Booststrap_Replacement , $bootstrap_file);
-		
+
 		$zip->addFromString($module_name.'/'.$module_name.'.php', $bootstrap_file);
   		
   		//	folderControllers  	

@@ -27,19 +27,19 @@
 if (!defined('_PS_VERSION_'))
 	exit;
 
-class /*MODULE*/ extends Module
+class &&MODULE&& extends Module
 {
 	public function __construct() 
 	{
-		$this->name = '/*MODULE_NAME*/';
-	 	$this->tab = '/*MODULE_TAB*/';
-	 	$this->version = '/*MODULE_VERSION*/';
-	 	$this->author = '/*MODULE_AUTHOR*/';
+		$this->name = '&&MODULE_NAME&&';
+	 	$this->tab = '&&MODULE_TAB&&';
+	 	$this->version = '&&MODULE_VERSION&&';
+	 	$this->author = '&&MODULE_AUTHOR&&';
 	  
 		parent::__construct();
 		
-		$this->displayName = $this->l('/*MODULE_DISPLAYNAME*/');
-		$this->description = $this->l('/*MODULE_DESCRIPTION*/');
+		$this->displayName = $this->l('&&MODULE_DISPLAYNAME&&');
+		$this->description = $this->l('&&MODULE_DESCRIPTION&&');
 	}
 
 	public function install()
@@ -47,10 +47,10 @@ class /*MODULE*/ extends Module
 		if(!parent::install())
 			return false;
 
-		/*INSTALL_HOOKS*/
+		&&INSTALL_HOOKS&&
 
 		return true;
 	}
 
-	/*INSTALLS_HOOKS*/
+	&&INSTALLS_HOOKS&&
 }
