@@ -2,7 +2,7 @@
 
 include('./classes/Tools.php');
 
-if($_POST['action'] == 'finish_step')
+if(Tools::getValue('action') == 'finish_step')
 {	
 	$temp_dir = dirname(__FILE__).'/tmp/';
 	$file = time();
