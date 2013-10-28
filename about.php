@@ -1,7 +1,10 @@
 <div class="columns">
 	<h3><i class="icon-question-sign"></i> About</h3>
 	<p>
-		Le générateur de module est développé par PrestaEdit.
+		Le générateur de module est initialement développé par PrestaEdit.
+	</p>
+	<p>
+		Il est désormais accessible via GitHub (https://github.com/PrestaEdit/generator/).
 	</p>
 	<h3><i class="icon-info-sign"></i> ChangeLog</h3>
 	<h4>v0.3</h4>
