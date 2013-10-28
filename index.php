@@ -1,5 +1,9 @@
- <?php include('translations/fr.php'); ?>
- <?php include('functions.php'); ?>
+ <?php 
+ include('translations/fr.php');
+ include('functions.php'); 
+ include('./classes/Tools.php'); 
+ 
+ ?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -53,8 +57,7 @@
 			</header>
 			<div class="site_container container">						
 				<?php
-					$page = $_GET['page'];
-					switch($page)
+					switch(Tools::getValue('page'))
 					{
 						case 'about': 		include('about.php');
 											break;
